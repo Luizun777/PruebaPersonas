@@ -1,0 +1,11 @@
+@import 'botones/btn.scss';
+@import "mixin/mixin.scss";
+@import "variables/variables.scss";
+
+@include google-font("Alegreya+Sans");
+@include google-font("Titillium+Web");
+
+body {
+    font-family: $text-font;
+    font-size: em(25px);
+}

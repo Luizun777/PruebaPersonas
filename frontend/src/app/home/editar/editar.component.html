@@ -1,0 +1,39 @@
+<h4>Editar Persona!</h4>
+<a [routerLink]="[ '/listas' ]" class="btn btn-success volver"> volver </a>
+<div [formGroup]="formEditar">
+  <div class="form-group">
+    <label>Email address</label>
+    <input formControlName="nombre" type="text" class="form-control" placeholder="Enter email">
+    <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+      <small *ngIf="nombre.errors.required" class="form-text text-muted">Nombre requerido</small>
+      <small *ngIf="nombre.errors.maxlength" class="form-text text-muted">Caracteres maximos 50</small>
+      <small *ngIf="nombre.errors.minlength && !nombre.errors.pattern" class="form-text text-muted">Caracteres minimos 5</small>
+      <small *ngIf="nombre.errors.pattern" class="form-text text-muted"> No estan permitidos numeros o caracteres especiales en el nombre </small>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Edad</label>
+    <input formControlName="edad" type="number" class="form-control" placeholder="Edad">
+    <div *ngIf="edad.invalid && (edad.dirty || edad.touched)">
+      <small *ngIf="edad.errors.required" class="form-text text-muted">Edad requerido</small>
+      <small *ngIf="edad.errors.max" class="form-text text-muted">El maximo de edad permitido es de 90 años</small>
+      <small *ngIf="edad.errors.min" class="form-text text-muted">La edad minima permitida es de 10 años</small>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Sexo (opcional)</label>
+    <select formControlName="sexo" class="form-control">
+      <option value="No binario">Selecciona</option>
+      <option value="M">M</option>
+      <option value="F">F</option>
+      <option value="No binario">No binario</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Codigo: {{ verCodigo }}</label>
+    <br>
+    <button (click)="nuevoCodigo()" class="btn btn-success">Nuevo codigo</button>    
+  </div>
+  <button (click)="editar()" class="btn btn-warning">Editar</button>
+  <button (click)="eliminar()" class="btn btn-danger">Eliminar</button>
+</div>
