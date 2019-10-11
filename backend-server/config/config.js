@@ -1,1 +1,1 @@
-module.exports.SEED = 'seed-dificil';
+module.exports.SEED = 'seed-dificil'
